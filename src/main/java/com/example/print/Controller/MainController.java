@@ -53,7 +53,8 @@ public class MainController {
 
     @PostMapping("/addUser")
     public ModelAndView addUser(@ModelAttribute("model") User model) {
-        if (model.getPassportAttributes().isEmpty()) {
+        if (model.getPassportAttributes().isEmpty() || model.getFirstName().isEmpty() || model.getLastName().isEmpty()
+                || model.getMiddleName().isEmpty()) {
             ModelAndView result = new ModelAndView("/newUserPage");
             result.addObject("validationMessage", true);
             return result;

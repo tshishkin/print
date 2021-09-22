@@ -44,7 +44,7 @@ public class UsersServiceImpl implements UsersService{
     public byte[] drawPass(User user) throws IOException {
         Resource resource = new ClassPathResource("/static/img/passTemplate.png");
         BufferedImage image = ImageIO.read(resource.getFile());
-        Font font = new Font("Arial", Font.BOLD, 12);
+        Font font = new Font("Arial", Font.BOLD, 14);
         String timeStamp = new SimpleDateFormat("dd/MM/yyyy")
                 .format(Calendar.getInstance().getTime());
         Graphics graphics = image.getGraphics();
