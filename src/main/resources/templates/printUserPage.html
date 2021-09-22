@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Печать пользователя</title>
+</head>
+<style>
+    @media print {
+       title, button, a {
+            display: none;
+        }
+    }
+</style>
+<body>
+<a th:href="@{'/users'}">Назад</a>
+<div style="text-align: center">
+    <img th:src="@{${'/users/print/image/' + user.getId()}}"/>
+</div>
+<div style="text-align: center">
+    <button onclick="window.print()">Печать</button>
+</div>
+
+</body>
+</html>

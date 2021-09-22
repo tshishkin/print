@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Новый пользователь</title>
+</head>
+<style>
+    @import "static/css/main-styles.scss";
+</style>
+<body>
+<div>
+    <a th:href="@{'/main'}">Назад</a>
+    <div style="text-align: center">Добавление нового работника</div>
+</div>
+
+<div>
+    <form th:method="POST" role="form"
+    th:action="@{'/addUser'}"
+    th:object="${model}">
+        <div>
+            <input type="text" name="firstName">
+            <label>Имя</label>
+        </div>
+        <div>
+            <input type="text" name="lastName">
+            <label>Фамилия</label>
+        </div>
+        <div>
+            <input type="text" name="middleName">
+            <label>Отчество</label>
+        </div>
+        <div>
+            <input type="text" name="passportAttributes">
+            <label>Номер и серия паспорта</label>
+        </div>
+        <div>
+            <button type="submit">Добавить</button>
+        </div>
+    </form>
+    <th:block th:if="${validationMessage}">
+        <div>Обязательное поле не было заполнено</div>
+    </th:block>
+</div>
+
+</body>
+</html>

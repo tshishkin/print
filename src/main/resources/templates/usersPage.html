@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Список работников</title>
+</head>
+<body>
+<div>
+    <a th:href="@{'/main'}">Назад</a>
+    <div style="text-align: center">Список работников</div>
+</div>
+<div style="display:flex" th:each="user : ${users}">
+    <div style="padding-right: 10px" th:text="${user.getLastName() + ' ' + user.getFirstName() + ' ' + user.getMiddleName()}"></div>
+    <a th:href="${'/users/print/' + user.getId()}">
+        <button>Печать</button>
+    </a>
+    <form th:method="POST" role="form" th:action="${'/deleteUser/' + user.getId()}">
+        <button type="submit">Удалить</button>
+    </form>
+</div>
+</body>
+</html>
