@@ -9,6 +9,9 @@
     <a th:href="@{'/main'}">Назад</a>
     <div style="text-align: center">Список работников</div>
 </div>
+<th:block th:if="${#lists.size(users) == 0}"}>
+    <div>Работники отсутствуют</div>
+</th:block>
 <div style="display:flex" th:each="user : ${users}">
     <div style="padding-right: 10px" th:text="${user.getLastName() + ' ' + user.getFirstName() + ' ' + user.getMiddleName()}"></div>
     <a th:href="${'/users/print/' + user.getId()}">
