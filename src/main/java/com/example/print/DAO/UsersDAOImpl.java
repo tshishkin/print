@@ -4,24 +4,21 @@ import com.example.print.Model.User;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 
-import java.util.HashMap;
+import javax.sql.DataSource;
 import java.util.List;
-import java.util.Map;
 
 @Repository
-public class UsersDAOImpl implements UsersDAO {
-
-    protected final NamedParameterJdbcTemplate jdbcTemplate;
+public class UsersDAOImpl extends AbstractDAO implements UsersDAO {
 
     private static final RowMapper<User> ROW_MAPPER = new BeanPropertyRowMapper<>(User.class);
 
-    public UsersDAOImpl(NamedParameterJdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
+    public UsersDAOImpl(DataSource dataSource) {
+        super(dataSource);
     }
+
 
     @Override
     public List<User> getAllUsers() {
@@ -37,16 +34,12 @@ public class UsersDAOImpl implements UsersDAO {
 
     @Override
     public void deleteUser(Long id) {
-        Map<String, Long> params = new HashMap<>();
-        params.put("id", id);
-        jdbcTemplate.update("delete from users where id = :id", params );
+        jdbcTemplate.update("delete from users where id = :id", map("id", id ) );
     }
 
     @Override
     public User getUserById(Long id) {
-        Map<String, Long> params = new HashMap<>();
-        params.put("id", id);
-        return jdbcTemplate.queryForObject("select * from users where id = :id ", params, ROW_MAPPER);
+        return jdbcTemplate.queryForObject("select * from users where id = :id ", map("id", id), ROW_MAPPER);
     }
 
 
