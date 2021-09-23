@@ -3,3 +3,5 @@ databaseChangeLog:
       file: db/changelog/2021-09-15-create-users.sql
   - include:
       file: db/changelog/2021-09-21-add-column.sql
+  - include:
+      file: db/changelog/2021-09-23-add-date-column.sql

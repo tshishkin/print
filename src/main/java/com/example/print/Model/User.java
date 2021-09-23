@@ -1,11 +1,14 @@
 package com.example.print.Model;
 
+import java.sql.Date;
+
 public class User {
     private Long id;
     private String firstName;
     private String lastName;
     private String middleName;
     private String passportAttributes;
+    private Date creationDate;
 
 
     public Long getId() {
@@ -46,5 +49,13 @@ public class User {
 
     public void setPassportAttributes(String passportAttributes) {
         this.passportAttributes = passportAttributes;
+    }
+
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
     }
 }

@@ -31,8 +31,8 @@ public class UsersDAOImpl implements UsersDAO {
     @Override
     public void addNewUser(User user) {
         SqlParameterSource params = new BeanPropertySqlParameterSource(user);
-        jdbcTemplate.update("insert into users (id, first_name, last_name, middle_name, passport_attributes) VALUES (nextval('users_seq'),\n" +
-                " :firstName, :lastName, :middleName, :passportAttributes)", params );
+        jdbcTemplate.update("insert into users (id, first_name, last_name, middle_name, passport_attributes, creation_date) VALUES (nextval('users_seq'),\n" +
+                " :firstName, :lastName, :middleName, :passportAttributes, now())", params );
     }
 
     @Override
