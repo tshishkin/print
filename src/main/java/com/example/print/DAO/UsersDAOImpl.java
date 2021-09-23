@@ -25,7 +25,7 @@ public class UsersDAOImpl implements UsersDAO {
 
     @Override
     public List<User> getAllUsers() {
-        return jdbcTemplate.query("select * from users order by id", ROW_MAPPER);
+        return jdbcTemplate.query("select * from users order by creation_date", ROW_MAPPER);
     }
 
     @Override
