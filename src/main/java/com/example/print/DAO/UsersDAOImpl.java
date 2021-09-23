@@ -19,7 +19,6 @@ public class UsersDAOImpl extends AbstractDAO implements UsersDAO {
         super(dataSource);
     }
 
-
     @Override
     public List<User> getAllUsers() {
         return jdbcTemplate.query("select * from users order by creation_date", ROW_MAPPER);
@@ -28,8 +27,19 @@ public class UsersDAOImpl extends AbstractDAO implements UsersDAO {
     @Override
     public void addNewUser(User user) {
         SqlParameterSource params = new BeanPropertySqlParameterSource(user);
-        jdbcTemplate.update("insert into users (id, first_name, last_name, middle_name, passport_attributes, creation_date) VALUES (nextval('users_seq'),\n" +
-                " :firstName, :lastName, :middleName, :passportAttributes, now())", params );
+        jdbcTemplate.update("insert into users (id," +
+                " first_name," +
+                " last_name," +
+                " middle_name," +
+                " passport_attributes," +
+                " creation_date) " +
+                "VALUES " +
+                "(nextval('users_seq'),\n" +
+                " :firstName," +
+                " :lastName," +
+                " :middleName," +
+                " :passportAttributes," +
+                " now())", params );
     }
 
     @Override
@@ -41,6 +51,4 @@ public class UsersDAOImpl extends AbstractDAO implements UsersDAO {
     public User getUserById(Long id) {
         return jdbcTemplate.queryForObject("select * from users where id = :id ", map("id", id), ROW_MAPPER);
     }
-
-
 }

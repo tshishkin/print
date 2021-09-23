@@ -19,6 +19,7 @@ public class MainController {
     @Autowired
     UsersService usersService;
 
+    /*GET*/
     @GetMapping("/main")
     public ModelAndView mainPage() {
         return new ModelAndView("/mainPage");
@@ -51,10 +52,13 @@ public class MainController {
         return usersService.drawPass(user);
     }
 
+    /*POST*/
     @PostMapping("/addUser")
     public ModelAndView addUser(@ModelAttribute("model") User model) {
-        if (model.getPassportAttributes().isEmpty() || model.getFirstName().isEmpty() || model.getLastName().isEmpty()
-                || model.getMiddleName().isEmpty()) {
+        if (model.getPassportAttributes().isEmpty() ||
+                model.getFirstName().isEmpty() ||
+                model.getLastName().isEmpty() ||
+                model.getMiddleName().isEmpty()) {
             ModelAndView result = new ModelAndView("/newUserPage");
             result.addObject("validationMessage", true);
             return result;
