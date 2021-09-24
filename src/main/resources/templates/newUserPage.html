@@ -30,8 +30,11 @@
             <label>Отчество</label>
         </div>
         <div>
-            <input type="text" name="passportAttributes">
-            <label>Номер и серия паспорта</label>
+            <div style="display:flex">
+                <input type="text" name="passportSerial">
+                <input type="text" name="passportNumber">
+                <label>Серия и номер паспорта</label>
+            </div>
         </div>
         <div>
             <button type="submit">Добавить</button>

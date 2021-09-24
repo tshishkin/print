@@ -55,7 +55,8 @@ public class MainController {
     /*POST*/
     @PostMapping("/addUser")
     public ModelAndView addUser(@ModelAttribute("model") User model) {
-        if (model.getPassportAttributes().isEmpty() ||
+        if (model.getPassportNumber().isEmpty() ||
+                model.getPassportSerial().isEmpty() ||
                 model.getFirstName().isEmpty() ||
                 model.getLastName().isEmpty() ||
                 model.getMiddleName().isEmpty()) {

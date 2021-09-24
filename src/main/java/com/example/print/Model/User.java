@@ -7,8 +7,10 @@ public class User {
     private String firstName;
     private String lastName;
     private String middleName;
-    private String passportAttributes;
+    private String passportSerial;
+    private String passportNumber;
     private Date creationDate;
+
 
 
     public Long getId() {
@@ -43,19 +45,27 @@ public class User {
         this.middleName = middleName;
     }
 
-    public String getPassportAttributes() {
-        return passportAttributes;
-    }
-
-    public void setPassportAttributes(String passportAttributes) {
-        this.passportAttributes = passportAttributes;
-    }
-
     public Date getCreationDate() {
         return creationDate;
     }
 
     public void setCreationDate(Date creationDate) {
         this.creationDate = creationDate;
+    }
+
+    public String getPassportSerial() {
+        return passportSerial;
+    }
+
+    public void setPassportSerial(String passportSerial) {
+        this.passportSerial = passportSerial;
+    }
+
+    public String getPassportNumber() {
+        return passportNumber;
+    }
+
+    public void setPassportNumber(String passportNumber) {
+        this.passportNumber = passportNumber;
     }
 }

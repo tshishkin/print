@@ -31,20 +31,22 @@ public class UsersDAOImpl extends AbstractDAO implements UsersDAO {
                 " first_name," +
                 " last_name," +
                 " middle_name," +
-                " passport_attributes," +
+                " passport_serial," +
+                " passport_number," +
                 " creation_date) " +
                 "VALUES " +
                 "(nextval('users_seq'),\n" +
                 " :firstName," +
                 " :lastName," +
                 " :middleName," +
-                " :passportAttributes," +
+                " :passportSerial," +
+                " :passportNumber," +
                 " now())", params );
     }
 
     @Override
     public void deleteUser(Long id) {
-        jdbcTemplate.update("delete from users where id = :id", map("id", id ) );
+        jdbcTemplate.update("delete from users where id = :id", map("id", id) );
     }
 
     @Override

@@ -67,7 +67,8 @@ public class UsersServiceImpl implements UsersService{
         graphics.drawString(user.getFirstName(), 305, 176);
         graphics.drawString(user.getMiddleName(), 305, 192);
         //Cерия/Номер паспорта
-        graphics.drawString(user.getPassportAttributes(), 305, 225);
+        graphics.drawString(user.getPassportSerial(), 480, 210);
+        graphics.drawString(user.getPassportNumber(), 305, 225);
         //Второй блок названия организации
         graphics.drawString("Компьютер +", 370, 285);
         //Второй блок к кому
