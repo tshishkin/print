@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.thymeleaf.util.StringUtils;
 
 import java.io.IOException;
 
@@ -55,11 +56,11 @@ public class MainController {
     /*POST*/
     @PostMapping("/addUser")
     public ModelAndView addUser(@ModelAttribute("model") User model) {
-        if (model.getPassportNumber().isEmpty() ||
-                model.getPassportSerial().isEmpty() ||
-                model.getFirstName().isEmpty() ||
-                model.getLastName().isEmpty() ||
-                model.getMiddleName().isEmpty()) {
+        if (StringUtils.isEmpty(model.getPassportNumber()) ||
+                StringUtils.isEmpty(model.getPassportSerial()) ||
+                StringUtils.isEmpty(model.getFirstName()) ||
+                StringUtils.isEmpty(model.getLastName()) ||
+                StringUtils.isEmpty(model.getMiddleName())) {
             ModelAndView result = new ModelAndView("/newUserPage");
             result.addObject("validationMessage", true);
             return result;
