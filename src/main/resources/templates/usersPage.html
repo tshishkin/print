@@ -2,15 +2,15 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" >
 <head>
     <meta charset="UTF-8">
-    <title>Список работников</title>
+    <title>Список пользователей</title>
 </head>
 <body>
 <div>
     <a th:href="@{'/main'}">Назад</a>
-    <div style="text-align: center">Список работников</div>
+    <div style="text-align: center">Список пользователей</div>
 </div>
 <th:block th:if="${#lists.size(users) == 0}">
-    <div>Работники отсутствуют</div>
+    <div>Пользователи отсутствуют</div>
 </th:block>
 <div style="display:flex" th:each="user : ${users}">
     <div style="padding-right: 10px" th:text="${user.getLastName() + ' ' + user.getFirstName() + ' ' + user.getMiddleName()}"></div>

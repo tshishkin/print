@@ -10,7 +10,7 @@
 <body>
 <div>
     <a th:href="@{'/main'}">Назад</a>
-    <div style="text-align: center">Добавление нового работника</div>
+    <div style="text-align: center">Добавление нового пользователя</div>
 </div>
 
 <div>
@@ -18,12 +18,12 @@
     th:action="@{'/addUser'}"
     th:object="${model}">
         <div>
-            <input type="text" name="firstName">
-            <label>Имя</label>
-        </div>
-        <div>
             <input type="text" name="lastName">
             <label>Фамилия</label>
+        </div>
+        <div>
+            <input type="text" name="firstName">
+            <label>Имя</label>
         </div>
         <div>
             <input type="text" name="middleName">
